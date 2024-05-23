@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "e198c521-1ec0-42c9-8020-becf0ac7db61",
+		"name": "InventoryManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9805335"
+	},
+	"item": [
+		{
+			"name": "supplier",
+			"item": [
+				{
+					"name": "Create Supplier",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"lucky_1\",\n    \"phoneNumber\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/suppliers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Supplier",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"lucky_barkane\",\n    \"phoneNumber\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/suppliers/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"suppliers",
+								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Product_1\",\n    \"supplier\": {\n        \"id\": 14\n    },\n    \"price\": 10.99,\n    \"stockQuantity\": 12,\n    \"images\": [\n        {\n            \"name\": \"Product_Image_1\",\n            \"data\": \"DAIYFw0=\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Product_Image_2\",\n            \"data\": \"DAIYFw0=\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Product ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ALL Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"supplierId\": \n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Products",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New Product Name\",\n    \"supplier\": {\n        \"id\": 14\n    },\n    \"images\": [\n        {\n            \"id\": 13,\n            \"name\": \"new product image 1\",\n            \"data\": \"DAIYFw0=\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"new product image 2\",\n            \"data\": \"DAIYFw0=\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adjust Stock API",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"stockQuantity\": 121\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/30/stocks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"30",
+								"stocks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
